@@ -1,0 +1,29 @@
+% fonts and encodings
+\setlength{\unitlength}{1mm}
+\ticketNumbers{2}{3}
+\ticketSize{135}{60}
+\ticketDistance{1}{1}
+
+\renewcommand*{\ticketdefault}{%
+\put(114,40) {\includegraphics[width=20mm]{logo}}
+\put(0,  42) {\makebox(38,6){Revision/Color}}
+\put(38, 42) {\makebox(38,6){PCB}}
+\put(76, 42) {\makebox(38,6){Plate}}
+\put(0,  18) {\makebox(38,6){Switches}}
+\put(38, 18) {\makebox(38,6){Stabilizers}}
+\put(76, 18) {\makebox(38,6){Keycaps}}
+}
+
+\newcommand*{\conventioncard}[9]{
+  \ticket{
+    \put(0, 50)  {\makebox(55,10) {\Large\bfseries @#1}}
+    \put(50,50)  {\makebox(40,10) {\Large\bfseries #2}}
+    \put(0, 36)  {\makebox(38,0) {\parbox{36\unitlength}{\centering #3}}}
+    \put(38,36)  {\makebox(38,0) {\parbox{36\unitlength}{\centering #4}}}
+    \put(76,36)  {\makebox(38,0) {\parbox{36\unitlength}{\centering #5}}}
+    \put(0, 12)   {\makebox(38,0) {\parbox{36\unitlength}{\centering #6}}}
+    \put(38,12)   {\makebox(38,0) {\parbox{36\unitlength}{\centering #7}}}
+    \put(76,12)   {\makebox(38,0) {\parbox{36\unitlength}{\centering #8}}}
+    \put(114,10) {\qrcode{#9}}
+  }
+}

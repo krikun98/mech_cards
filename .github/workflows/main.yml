@@ -1,0 +1,23 @@
+on:
+  [push]
+
+env:
+  DOCKER_USER_OPTION: '$UID:$GID'
+
+name: Build cards
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    name: Generate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: xanantis/docker-file-ownership-fix@v1
+      - name: Run build script
+        run: |
+            python3 data_to_tex.py
+        shell: bash
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
